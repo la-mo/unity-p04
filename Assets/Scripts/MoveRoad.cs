@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class MoveRoad : MonoBehaviour
 {
+    // Game Manager
+    private GameController _gameController;
+
+    // Road variables
     private float _speed;
     private Vector3 _originalPosition;
     private float _originalZ;
     private float _lengthOfRoadTile = 2f;
+
+    private void Awake()
+    {
+        _gameController = GameObject.FindObjectOfType<GameController>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -15,8 +24,8 @@ public class MoveRoad : MonoBehaviour
         // Getting the original positions of the barckground to reset it to its original position.
         _originalPosition = transform.position;
         _originalZ = _originalPosition.z;
-        // Getting the speed for this game
-        _speed =  2f; // _gameManager.BackgroundSpeed;
+        // Getting the road speed for this game
+        _speed =   _gameController.RoadSpeed;
     }
 
     // Update is called once per frame
