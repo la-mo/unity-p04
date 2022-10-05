@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
     private GameController _gameController;
     // Jump force
     private float _jumpForce;
-    private float _roadY = 0.7f;
+    private float _horizontalSpeed;
     // Player starts on the road
     private bool _isOnTheRoad = true;
     // Screen limits
     private float _roadLeftBoundary;
     private float _roadRightBoundary;
+    private float _roadFloorBoundary;
+    private float _roadFloorCeiling;
     // Rigidbody to detect collision
     private Rigidbody _playerRb;
     // Animator
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     // Audio source
     private AudioSource _playerAudio;
     public AudioClip JumpSound;
+    public AudioClip RollSound;
     public AudioClip ExplosionSound;
     public AudioClip CoinSound;
 
@@ -49,10 +52,9 @@ public class PlayerController : MonoBehaviour
         _jumpForce = _gameController.PlayerJumpForce;
         _roadLeftBoundary = _gameController.RoadLeftBoundary;
         _roadRightBoundary = _gameController.RoadRightBoundary;
-
-        // We assume we start on tthe road;
-        _roadY = transform.position.y;
-
+        _roadFloorBoundary = _gameController.RoadFloorBoundary;
+        _roadFloorCeiling = _gameController.RoadFloorCeiling;
+        _horizontalSpeed = _gameController.Horizontalspeed;
 
         // Set gravity for the player's jump.
         Physics.gravity *= _gameController.GameGravityModifier;
@@ -64,7 +66,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO - MOVE TO START
         _jumpForce = _gameController.PlayerJumpForce;
+        _roadLeftBoundary = _gameController.RoadLeftBoundary;
+        _roadRightBoundary = _gameController.RoadRightBoundary;
+        _roadFloorBoundary = _gameController.RoadFloorBoundary;
+        _roadFloorCeiling = _gameController.RoadFloorCeiling;
+        _horizontalSpeed = _gameController.Horizontalspeed;
+
+
         // Check if the conditions are met for "Jumping"
         if (Input.GetKeyDown(KeyCode.Space) && _isOnTheRoad && _gameController.IsNotGameOver)
         {
@@ -75,10 +85,22 @@ public class PlayerController : MonoBehaviour
             _isOnTheRoad = false;
         }
 
-                // Limit the player on the Y axis position
+        // Check if the conditions are met for "Rolling"
+        bool isRollKeys = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.R);
+        if (isRollKeys && _isOnTheRoad && _gameController.IsNotGameOver)
+        {
+            _anim.SetTrigger(ANIM_ROLL);
+            _playerAudio.PlayOneShot(RollSound);
+        }
+
+        // This will move our ship left / right
+        float horizontal = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * Time.deltaTime * horizontal * _horizontalSpeed);
+
+        // Limit the player on the Y axis position
         transform.position = new Vector3(
-            transform.position.x,
-            Mathf.Clamp(transform.position.y, _roadY, 2f), 
+            Mathf.Clamp(transform.position.x, _roadLeftBoundary, _roadRightBoundary), 
+            Mathf.Clamp(transform.position.y, _roadFloorBoundary, _roadFloorCeiling), 
             transform.position.z);
 
     }

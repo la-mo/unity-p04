@@ -8,13 +8,16 @@ public class GameController : MonoBehaviour
     private const float StaticObjectSpeed = 2f;
 
     // Other variable for the game
-    public float PlayerJumpForce = 60;
+    public float PlayerJumpForce = 60f;
+    public float Horizontalspeed = 3f;
     public float GameGravityModifier = 12f;
     public float RoadSpeed = StaticObjectSpeed;
     public float VehiculeSpeed = StaticObjectSpeed + 1f;
     public float OutOfScreen = -45f;
-    public float RoadLeftBoundary = 125f;
-    public float RoadRightBoundary = 2f;
+    public float RoadLeftBoundary = -1.2f;
+    public float RoadRightBoundary = 0.8f;
+    public float RoadFloorBoundary = 0.7f;
+    public float RoadFloorCeiling = 2f;
 
 
     // Coins Collected

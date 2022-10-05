@@ -1071,12 +1071,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerJumpForce: 60
+  Horizontalspeed: 3
   GameGravityModifier: 12
-  RoadSpeed: 1
-  VehiculeSpeed: 2
+  RoadSpeed: 2
+  VehiculeSpeed: 3
   OutOfScreen: -45
-  RoadLeftBoundary: 125
-  RoadRightBoundary: 2
+  RoadLeftBoundary: -1.2
+  RoadRightBoundary: 0.8
+  RoadFloorBoundary: 0.7
+  RoadFloorCeiling: 2
 --- !u!1001 &1055365643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1965,7 +1968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4155211010157114583, guid: a3efe3ab13f794c108d6f41d30a65d5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.009236246
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4155211010157114583, guid: a3efe3ab13f794c108d6f41d30a65d5f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2162,6 +2165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpSound: {fileID: 8300000, guid: b40fd2111a87e417ab0ee25154721dbd, type: 3}
+  RollSound: {fileID: 8300000, guid: f1541f41de78b4c50a1b1f9f85b3d408, type: 3}
   ExplosionSound: {fileID: 8300000, guid: 93a82ace40b254b54a2580cae17d74a7, type: 3}
   CoinSound: {fileID: 8300000, guid: 201a7eb358efe468689e18bcae84c571, type: 3}
   Splatter: {fileID: 613413050}
