@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6460397114561388278}
   - component: {fileID: 6460397114561388279}
   - component: {fileID: 6460397114561388272}
+  - component: {fileID: -6802614184238378864}
   m_Layer: 0
   m_Name: billboard
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,6 +91,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0198537, y: 0.49819946, z: 0.045355186}
   m_Center: {x: 0.04377842, y: 0.73812103, z: -0.008474203}
+--- !u!114 &-6802614184238378864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690422401894739184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed511921755b5d148bcdb262909a184d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3463433143082299514
 GameObject:
   m_ObjectHideFlags: 0

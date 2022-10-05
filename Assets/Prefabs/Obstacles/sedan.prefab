@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 124232167380795135}
   - component: {fileID: 4854518818506418402}
   - component: {fileID: 4854518818506418401}
+  - component: {fileID: 4101933200404625220}
   m_Layer: 0
   m_Name: sedan
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,6 +68,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8545447256379345787, guid: c30b0ad33fb80490bbd7868276db1a11, type: 3}
+--- !u!114 &4101933200404625220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788847726448665669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed511921755b5d148bcdb262909a184d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090172045088705944
 GameObject:
   m_ObjectHideFlags: 0

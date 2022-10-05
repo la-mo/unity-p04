@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     public float Horizontalspeed = 3f;
     public float GameGravityModifier = 12f;
     public float RoadSpeed = StaticObjectSpeed;
-    public float VehiculeSpeed = StaticObjectSpeed + 1f;
+    public float ObstaclesAndCoinsSpeed = StaticObjectSpeed + 1f;
     public float OutOfScreen = -45f;
     public float RoadLeftBoundary = -1.2f;
     public float RoadRightBoundary = 0.8f;

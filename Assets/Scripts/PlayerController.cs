@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-        // Game Manager
+    // Game Controller
     private GameController _gameController;
     // Jump force
     private float _jumpForce;

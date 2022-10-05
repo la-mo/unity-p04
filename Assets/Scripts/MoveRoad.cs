@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveRoad : MonoBehaviour
 {
-    // Game Manager
+    // Game Controller
     private GameController _gameController;
 
     // Road variables
@@ -31,6 +31,9 @@ public class MoveRoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Stop when game is over
+        if (_gameController.IsGameOver) return;
+
         // Move the background with respect to the world.
         // Once the background gets to a certain point, I will reset it.
         transform.Translate(Vector3.back * Time.deltaTime * _speed, Space.World);
